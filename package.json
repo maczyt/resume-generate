@@ -1,0 +1,23 @@
+{
+  "name": "简历生成器",
+  "version": "1.0.0",
+  "description": "一个免费的网站",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "简历",
+    "免费",
+    "张梦如"
+  ],
+  "author": "周宇涛",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.2",
+    "flatpickr": "^2.6.3",
+    "jade": "^1.11.0",
+    "moment": "^2.18.1"
+  }
+}

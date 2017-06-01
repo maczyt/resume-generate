@@ -1,0 +1,70 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="/static/css/normalize.css")
+        link(rel="stylesheet", href="/static/css/template.css")
+        block styles
+            
+    body
+        .page
+            .main
+                .aboutMe
+                    h2 about me
+                    p #{aboutMe || '一个有志青年'}
+                .education
+                    h2 education
+                    ul
+                        each item in education
+                            li
+                                span.name #{item.name}
+                                span.time #{item.startDate} - #{item.endDate}
+                                p.content #{item.summary}
+                .work
+                    h2 work experience
+                    ul
+                        each item in work
+                            li
+                                span.name #{item.name}
+                                span.time #{item.startDate} - #{item.endDate}
+                                p.content #{item.summary}
+            .aside
+                .avatar-wrap
+                    a
+                    span.name #{baseInfo.name.value || '佚名'}
+                    span.title #{baseInfo.resumeTitle.value || '程序员'}
+                .baseInfo
+                    ul
+                        li #{baseInfo.mobile.type} : #{baseInfo.mobile.value}
+                        each val, key in baseInfo
+                            if key.startsWith('item')
+                                li #{val.type} : #{val.value}
+                .language
+                    h2 language
+                    ul
+                        each item in language
+                            li 
+                                span(style={display: 'inline-block', width: '90px', }) #{item.name || '偷懒'}
+                                - var open = Math.ceil((+item.value || 50) / 20)
+                                - var close = 5 - open
+                                .star
+                                    - for (var i = 0; i < open; i ++) 
+                                        i.open
+                                    - for (var i = 0; i < close; i ++)
+                                        i.close
+                .skill
+                    h2 skill
+                    ul
+                        each item in skill
+                            li 
+                                span(style={display: 'inline-block', width: '90px', }) #{item.name || '偷懒'}
+                                - var open = Math.ceil((+item.value || 50) / 20)
+                                - var close = 5 - open
+                                .star
+                                    - for (var i = 0; i < open; i ++)
+                                        i.open
+                                    - for (var i = 0; i < close; i ++)
+                                        i.close

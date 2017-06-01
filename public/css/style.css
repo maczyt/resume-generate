@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v22/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+.page {
+    overflow-x: hidden;
+}
+
+.slide-container {
+    position: relative;
+}
+.slide-container:after {
+    content: '';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+.modules section {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow-y: auto;
+}
+
+.modules section:nth-child(1) {
+    background-color: #9c6;
+}
+.modules section:nth-child(2) {
+    background-color: #f66;
+}
+.modules section:nth-child(3) {
+    background-color: #969;
+}
+.modules section:nth-child(4) {
+    background-color: #9cc;
+}
+.modules section:nth-child(5) {
+    background-color: #09c;
+}
+.modules section:nth-child(6) {
+    background-color: #f66;
+}
+
+.input { 
+    position: absolute;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 20px 45px;
+    top: 50%; left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.remove {
+    position: absolute;
+    font-style: normal;
+    color: #e53935;
+    font-size: 30px;
+    cursor: pointer;
+    right: -10px;
+    transform: translateY(-50%);
+}
+
+.single .remove {
+    top: 50%;
+}
+
+.status {
+    z-index: 9999;
+    position: absolute;
+    /*display: none;*/
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+.language i.remove {
+    top: auto;
+}
+
+.education .row {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.aboutMe .row {
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.btn-floating.btn-large {
+    z-index: 20000;
+}
+
+/*
+ * choosen页面
+ */
+.choosen h2 {
+    /*color: #fff;*/
+    text-align: center;
+}
+
+.choosen .wrap {
+    column-count: 2;
+    height: 100px;
+    background: #fff;
+}

@@ -1,0 +1,104 @@
+doctype html
+html
+    head
+        title #{ title }
+        meta(name="viewport",content="width=device-width, initial-scale=1.0")
+        include public
+    body
+        .page        
+            .modules.slide-container
+                section.slide-wrap.single
+                    .input.container.z-depth-3
+                        h3 基础信息
+                        .row
+                            form.col.s12
+                                .input-field.col.s12(v-for="(item, index) in baseInfo")
+                                    input.validate(type='text', v-model="item.value")
+                                    label {{ item.type }}
+                                    i.remove(@click="remove(app.baseInfo, index)") &times;
+                                a(@click="addBaseInfo")#addBaseInfo.btn-floating.btn-large.waves-effect.waves-light.red
+                                    i.material-icons add    
+                section.slide-wrap
+                    .input.container.z-depth-3.language
+                        h3 LANGUAGE
+                        .row
+                            .form.col.s12
+                                .input-field.col.s12(v-for="(item, index) in language")
+                                    input(type="text", placeholder="语言", v-model="item.name")
+                                    input(type="range", v-model="item.value")
+                                    i.remove(@click="removeArr(app.language, index)") &times;
+                                a(@click="add(app.language, '语言')")#addLanguage.btn-floating.btn-large.waves-effect.waves-light.red
+                                    i.material-icons add 
+                section.slide-wrap
+                     .input.container.z-depth-3.skill
+                        h3 SKILL
+                        .row
+                            .form.col.s12
+                                .input-field.col.s12(v-for="(item, index) in skill")
+                                    input(type="text", placeholder="技能" v-model="item.name")
+                                    input(type="range" v-model="item.value")
+                                    i.remove(@click="removeArr(app.skill, index)") &times;
+                                a(@click="add(app.skill, '技能')")#addSkill.btn-floating.btn-large.waves-effect.waves-light.red
+                                    i.material-icons add 
+                section.slide-wrap
+                    .container.education
+                        h2 教育
+                        .row.z-depth-3(v-for="(item, index) in education")
+                            .input-field.col.s12
+                                input(type="text" v-model="item.name")
+                                label 学校名称
+                            .input-field.col.s12
+                                input.datepicker(type="date" v-model="item.startDate")
+                                label 起始时间
+                            .input-field.col.s12
+                                input.datepicker(type="date", v-model="item.endDate")
+                                label 结束时间
+                            .input-field.col.s12
+                                textarea.materialize-textarea.textarea(data-length="120", v-model="item.summary")
+                                label 总结
+                            .input-field.col.s12(style={'padding-bottom': '10px', 'text-align': 'center'})
+                                a.btn.waves-light.waves-effect.pink.lighten-1(@click="removeArr(app.education, index)")
+                                    i.material-icons close  
+                        a(@click="add2(app.education, '学校名称')")#addEducation.btn-floating.btn-large.waves-effect.waves-light.red
+                            i.material-icons add 
+                section.slide-wrap
+                    .container.education
+                        h2 工作经历
+                        .row.z-depth-3(v-for="(item, index) in work")
+                            .input-field.col.s12
+                                input(type="text", v-model="item.name")
+                                label 公司名称
+                            .input-field.col.s12
+                                input.datepicker(type="date", v-model="item.startDate")
+                                label 起始时间
+                            .input-field.col.s12
+                                input.datepicker(type="date", v-model="item.endDate")
+                                label 结束时间
+                            .input-field.col.s12
+                                textarea.materialize-textarea.textarea(data-length="120", v-model="item.summary")
+                                label 总结
+                            .input-field.col.s12(style={'padding-bottom': '10px', 'text-align': 'center'})
+                                a.btn.waves-light.waves-effect.pink.lighten-1(@click="removeArr(app.work, index)")
+                                    i.material-icons close    
+                        a(@click="add2(app.work, '公司名称')")#addWork.btn-floating.btn-large.waves-effect.waves-light.red
+                            i.material-icons add
+                section.slide-wrap
+                    .container.aboutMe
+                        h2 关于本人
+                        .row.z-depth-3
+                            .input-field.col.s12
+                                textarea.textarea.materialize-textarea(data-length="200", v-model="aboutMe")
+                                label 请介绍自己
+                            
+                section.slide-wrap.choosen
+                    h2 请选择模板
+                    //- .container
+                        .row
+                            .col.s6
+                                .wrap.z-depth-3
+                            .col.s6
+                                .wrap.z-depth-3
+                    a.waves-effect.waves-light.btn(@click="save", style={position: 'absolute', left: '50%', transform: 'translateX(-50%)'})
+                        i.material-icons.right cloud
+                        | 生成
+            .status.container
