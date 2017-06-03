@@ -14,7 +14,7 @@ html(lang="en")
             .main
                 .aboutMe
                     h2 about me
-                    p #{aboutMe || '一个有志青年'}
+                    p !{aboutMe || '一个有志青年'}
                 .education
                     h2 education
                     ul
@@ -22,7 +22,7 @@ html(lang="en")
                             li
                                 span.name #{item.name}
                                 span.time #{item.startDate} - #{item.endDate}
-                                p.content #{item.summary}
+                                p.content !{item.summary}
                 .work
                     h2 work experience
                     ul
@@ -30,7 +30,7 @@ html(lang="en")
                             li
                                 span.name #{item.name}
                                 span.time #{item.startDate} - #{item.endDate}
-                                p.content #{item.summary}
+                                p.content !{item.summary}
             .aside
                 .avatar-wrap
                     a 
