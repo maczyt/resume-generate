@@ -74,6 +74,15 @@
                         },
                         // 保存
                         save: function () {
+                            this.education = this.education.map(function (item) {
+                                item.summary = item.summary.replace(/[\r\n]/g, '<br>');
+                                return item;
+                            });
+                            this.work = this.work.map(function (item) {
+                                item.summary = item.summary.replace(/[\r\n]/g, '<br>');
+                                return item;
+                            });
+                            this.aboutMe = this.aboutMe.replace(/[\r\n]/g, '<br>');
                             var data = JSON.stringify(this._data);
                             var html = '<form action="/template/white" method="post">' + 
                                 `<input type="hidden" name="data" value='${data}'>` +
